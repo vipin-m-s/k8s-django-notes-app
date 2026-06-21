@@ -1,3 +1,6 @@
+Architecture:- 
+<img width="1025" height="330" alt="Screenshot 2026-06-21 at 11 11 20 AM" src="https://github.com/user-attachments/assets/146b2155-cbb7-4227-9311-2a38c6e04c43" />
+
 - Create a docker image from the django notes app Dockerfile
 ```
 docker build -t [docker.io/vipinachar/django-notes-app:v1 ](https://docker.io/vipinachar/django-notes-app:v1) . 
