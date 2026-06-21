@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: notes-app-ns 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notes-app-deployment
+  namespace: notes-app-ns
+spec:
+   replicas: 1
+   selector:
+     matchLabels:
+       app: django-notes-app
+   template:
+      metadata:
+        name: django-notes-app-pod
+        labels: 
+          app: django-notes-app
+      spec:
+       containers: 
+       - name: django-notes-app 
+         image: docker.io/vipinachar/django-notes-app:v1
+---
+kind: Service
+apiVersion: v1
+metadata:
+   name: django-notes-app-service
+   namespace: notes-app-ns
+spec:
+  selector:
+    app: django-notes-app
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
+  
+
